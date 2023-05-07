@@ -1,0 +1,7 @@
+npx hardhat node    // Local Blockchain will start to run.
+
+npx hardhat run --network localhost scripts/deploy.js    // Deploy our Smart Contract
+
+cd client
+
+npm start
