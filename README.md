@@ -1,31 +1,58 @@
-DECENTRALIZED SECURE CLOUD STORAGE USING BLOCKCHAIN TECHNOLOGY
+# Decentralized Cloud Storage
 
-Our project ‘Decentralized Secure Cloud Storage using Blockchain Technology’ uses React js, Solidity, Ethereum and Web3.js to build a Secure Decentralized Cloud Storage. This project combines Cloud with Blockchain technology to produce a secured file storage system. Blockchain is considered by many to be the safest technology. Here, a single file is splitted and stored in blocks using the file manipulation and Advanced Encryption Standard (AES) algorithms. A high level, contract oriented language, Solidity is used for writing smart contracts. The system architecture which explains the cloud and blockchain processes is constructed. This system also ensures that it is free from attacks such as Brute force.
+A blockchain-backed prototype for decentralized cloud storage — Solidity smart
+contracts that share encrypted file references with user-level access control,
+deployed with Hardhat on an Ethereum-compatible local chain.
 
+[![GitHub stars](https://img.shields.io/github/stars/5h4d0wn1k/Decentralized-cloud-storage)](#)
+[![Last commit](https://img.shields.io/github/last-commit/5h4d0wn1k/Decentralized-cloud-storage)](#)
 
-Project Report
+## Why this project
 
-https://drive.google.com/file/d/1Y8FRLbZQEYApMRY8YX6U_mnyYn0_QhLQ/view?usp=sharing
+Cloud storage trusts a single provider with your files; blockchain technology
+offers an alternative where file references, access control, and integrity
+records live on a tamper-resistant ledger. "Decentralized Secure Cloud Storage
+using Blockchain Technology" explores splitting files, storing them in blocks
+with AES-based file manipulation, and recording access grants on-chain using
+Ethereum smart contracts. This repository contains the Solidity + Hardhat
+side: a contract that associates storage references with addresses and lets
+owners `allow`/`disallow` other wallets, plus a deployment script for a local
+chain (`chainId 1337`). It is a research/education prototype for building
+privacy- and integrity-oriented storage systems.
 
+## Features
 
-Screenshot of Project Model
+- **`Upload.sol`** — stores an array of file-reference strings per user address
+- **`allow`** — grant read access to another wallet
+- **`disallow`** — revoke previously granted access
+- **`display`** — access-checked retrieval of stored references
+  (`require(owner || granted)` on-chain)
+- **`shareAccess`** — view the current access-grant list
+- **Hardhat tooling** — `chainId 1337` local network, deploy script, artifacts
+  routed to `client/src/artifacts`
 
-![Screenshot 2023-02-14 112636](https://user-images.githubusercontent.com/105710017/236280851-892ec02e-47f3-4173-8ba8-7d2f584abde6.png)
+## Quickstart
 
-![Screenshot 2023-02-14 112702](https://user-images.githubusercontent.com/105710017/236280895-91a1a614-54ce-4788-b279-d7f7774aaba5.png)
+Prerequisites: Node 16+, npm, Hardhat 2.x.
 
-![Screenshot 2023-02-14 112748](https://user-images.githubusercontent.com/105710017/236280951-ed09b1ca-f3ce-43a9-8b15-6a624d045f48.png)
-
-
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat node // Start Local Blockchain
-
-npx hardhat run --network localhost scripts/deploy.js // Deploy Smart Contract
-
-cd client
-
-npm start
+```bash
+npm install
+npx hardhat node                                # start local blockchain
+npx hardhat run --network localhost scripts/deploy.js   # deploy Upload.sol
 ```
+
+> Note: the original project report references a React/web3 client, but the
+> client source is not tracked in this repository — only the contract and
+> deployment tooling. Contract artifacts are configured to write into
+> `client/src/artifacts` (see `hardhat.config.js`).
+
+## Project structure
+
+- `contracts/Upload.sol` — the storage/access-control contract
+- `scripts/deploy.js` — Hardhat deployment script
+- `hardhat.config.js` — Solidity 0.8.9, local network `chainId: 1337`
+
+## License
+
+No LICENSE file is currently published in this repository. `Upload.sol` carries
+an SPDX `GPL-3.0` identifier.
