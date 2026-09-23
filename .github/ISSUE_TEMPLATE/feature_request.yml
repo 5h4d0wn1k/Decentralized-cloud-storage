@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an improvement to the profile README or repo setup
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: What is the problem or gap you want to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the improvement you'd like (section, layout, data, automation).
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How do we know this is done?
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Verification
+      options:
+        - label: All image URLs verified HTTP 200 before merge
+        - label: README renders correctly on the profile page
+        - label: Changes flow through a PR with review
