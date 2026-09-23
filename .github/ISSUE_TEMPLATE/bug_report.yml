@@ -1,0 +1,22 @@
+name: Bug report
+description: Report a broken link, badge, or rendering issue in the profile
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the issue clearly. Include the URL / section name.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Affected link / badge URL
+      description: The exact URL that is broken or not rendering.
+  - type: input
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened instead?
