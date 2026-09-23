@@ -54,5 +54,5 @@ npx hardhat run --network localhost scripts/deploy.js   # deploy Upload.sol
 
 ## License
 
-No LICENSE file is currently published in this repository. `Upload.sol` carries
-an SPDX `GPL-3.0` identifier.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
